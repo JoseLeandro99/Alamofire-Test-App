@@ -1,19 +1,19 @@
-//
-//  AppDelegate.swift
-//  AlamofireApp
-//
-//  Created by Leandro on 02/08/22.
-//
-
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        guard #available(iOS 13, *) else {
+            let appWindow = UIWindow(frame: UIScreen.main.bounds)
+            appWindow.makeKeyAndVisible()
+            appWindow.rootViewController = UserViewController()
+            
+            self.window = appWindow
+            return true
+        }
         return true
     }
 
